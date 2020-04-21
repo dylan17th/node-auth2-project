@@ -4,7 +4,8 @@ module.exports = {
     getUsers,
     addUser,
     findById,
-    findBy
+    findBy,
+    sortByDepartment
 }
 
 function getUsers(){
@@ -24,4 +25,8 @@ function findById(id){
 function findBy(username){
    return db('users')
     .where({ username })
+}
+function sortByDepartment(department){
+    return  db('users')
+    .where({department})
 }

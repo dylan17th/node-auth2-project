@@ -12,4 +12,15 @@ router.get('/', (req,res)=> {
     })
 })
 
+router.get('/stretchgoal', (req,res)=>{
+    const department = req.decodedToken.department; 
+    Users.sortByDepartment(department)
+    .then(users => {
+        res.status(200).json(users)
+    })
+    .catch(err => {
+        res.status(500).json({message: 'error with database'})
+    })
+})
+
 module.exports = router;
