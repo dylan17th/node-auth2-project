@@ -7,6 +7,6 @@ const middleAuth = require('../auth/auth-middle.js')
 server.use(express.json());
 
 server.use('/api/users', middleAuth, userRouter);
-server.use('/api/auth', authRouter);
+server.use('/api/auth', middleAuth,authRouter);
 
 module.exports = server;
